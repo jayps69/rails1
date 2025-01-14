@@ -1,0 +1,21 @@
+<h1 class="display-4 text-center" style="word-wrap: break-word;"><%= @article.title %></h1>
+
+<p class="lead text-center style="word-wrap: break-word;" text-muted"><%= @article.body %></p>
+
+<div class="text-center mb-4">
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <%= link_to "Edit", edit_article_path(@article), class: "btn btn-success" %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to "Destroy", destroy_article_path(@article), 
+      onclick: "return confirm('Are you sure?');", class: "btn btn-danger" %>
+    </li>
+  </ul>
+</div>
+
+<h2 class="mt-5 text-primary ms-4">Comments</h2> 
+<%= render @article.comments %>
+
+<h2 class="mt-4 ms-4">Add a comment:</h2>
+<%= render "comments/form", article: @article %>

@@ -12,4 +12,5 @@
  *
  *= require_tree .
  *= require_self
- */
+ * .small-text {
+    font-size: 0.8rem; /* Adjust the value as needed */
