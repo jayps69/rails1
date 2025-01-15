@@ -1,6 +1,29 @@
-<% @users.each do |user| %>
-    <%= user.email %>
-    <%= user.roles.pluck(:name) %>
-    <%= link_to 'Edit Roles', edit_user_path(user) %>
-    <br>
-<% end %>
+<div class="d-flex justify-content-center  vh-100 mt-5">
+  <div class="card" style="width: 80%; height: 80%;">
+    <div class="card-header text-center">
+      <h4>Users</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each_with_index do |user, index| %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= user.email %></td>
+              <td><%= user.roles.pluck(:name).join(', ') %></td>
+              <td><%= link_to 'Edit Roles', edit_user_path(user), class: 'btn btn-primary btn-sm' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

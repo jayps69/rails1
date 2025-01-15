@@ -1,6 +1,44 @@
-<%= form_with(model: @user) do |form| %>
-    <%= form.collection_check_boxes :role_ids, Role.all, :id, :name %>
-    <%= @user.errors[:roles].join(", ") if @user.errors[:roles].any? %>
-    <%= form.button :submit %>
-  <% end %>
-  
+<div class="d-flex justify-content-center mt-5 vh-100">
+  <div class="card" style="width: 60%; height: 20%">
+    <div class="card-header text-center">
+      <h4>Edit Roles</h4>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: @user) do |form| %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Roles</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="role-checkboxes d-flex">
+                  <%= form.collection_check_boxes :role_ids, Role.all, :id, :name do |b| %>
+                    <div class="form-check form-check-inline mr-3">
+                      <%= b.check_box(class: "form-check-input", id: "role_#{b.object.id}") %>
+                      <%= b.label(class: "form-check-label", for: "role_#{b.object.id}") do %>
+                        <%= b.object.name %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </td>
+              <td>
+                <%= form.submit 'Assign Roles', class: "btn btn-primary btn-sm" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <% if @user.errors[:roles].any? %>
+          <div class="alert alert-danger">
+            <%= @user.errors[:roles].join(", ") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
