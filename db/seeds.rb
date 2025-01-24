@@ -1,18 +1,18 @@
-# 20.times do
-#     user = User.new(
-#       email: Faker::Internet.unique.email,
-#       password: 'password123',
-#       password_confirmation: 'password123'
-#     )
+20.times do
+    user = User.new(
+      email: Faker::Internet.unique.email,
+      password: 'password123',
+      password_confirmation: 'password123'
+    )
   
-#     if user.save
-#       puts "User created successfully."
-#     else
-#       puts "Error creating user: #{user.errors.full_messages.join(", ")}"
-#     end
-#   end
+    if user.save
+      puts "User created successfully."
+    else
+      puts "Error creating user: #{user.errors.full_messages.join(", ")}"
+    end
+  end
 
-# Create Users
+Create Users
 20.times do
     user = User.new(
       email: Faker::Internet.unique.email,
