@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  load_and_authorize_resource except: [:index, :show]  # Automatically loads and authorizes the resource for actions other than index
+  before_action :authenticate_user!, except: [:index]  # Redirects to login for actions that require authentication (except index and show)
   
   def index
     @articles = Article.all
@@ -15,7 +16,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    #@article.user = current_user
+    @article.user = current_user
 
     if @article.save
       redirect_to @article

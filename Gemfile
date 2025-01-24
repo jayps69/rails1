@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'rolify', '~> 5.2'
+gem 'cancancan', '~> 3.5'
+gem 'faker', '~> 3.4', '>= 3.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

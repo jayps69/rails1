@@ -8,6 +8,7 @@ class Article < ApplicationRecord
     #has_many :moderators, -> { where(:roles => {name: :moderator}) }, through: :roles, class_name: 'User', source: :users
   
     has_many :comments, dependent: :destroy
+    belongs_to :user
   
     validates :title, presence: true
     validates :body, presence: true, length: { minimum: 10 }
