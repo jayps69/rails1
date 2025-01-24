@@ -41,6 +41,9 @@
 
              <% if user_signed_in? %>
                 <li class="nav-item">
+                  <%= link_to "New Article", new_article_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
                 </li>
               <% if current_user.has_role?(:superadmin) %>

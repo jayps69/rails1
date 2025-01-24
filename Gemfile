@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'rolify', '~> 5.2'
 gem 'cancancan', '~> 3.5'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'faker', '~> 3.4', '>= 3.4.2'
 
 group :development, :test do

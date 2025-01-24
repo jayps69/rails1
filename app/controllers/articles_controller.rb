@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]  # Redirects to login for actions that require authentication (except index and show)
   
   def index
-    @articles = Article.all
+    @articles = Article.page(params[:page])
   end
 
   def show

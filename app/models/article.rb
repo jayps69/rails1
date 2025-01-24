@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
     include Visible
 
+    paginates_per 15
+
     #resourcify
     
 
