@@ -1,0 +1,6 @@
+<%= search_form_for @q, url: articles_path, method: :get, class: "d-flex align-items-center mb-4" do |f| %>
+    <div class="input-group">
+      <%= f.search_field :title_or_user_email_cont, placeholder: "Search...", class: "form-control" %>
+      <button type="submit" class="btn btn-primary">Search!</button>
+    </div>
+  <% end %>

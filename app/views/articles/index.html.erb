@@ -3,7 +3,7 @@
   <p class="text-center text-muted">
     Our blog has <strong><%= Article.public_count %></strong> articles and counting!
   </p>
-
+<%= render 'articles/search_form.html.erb' %>
   <div class="row g-3 text-center">
   <% @articles.each do |article| %>
     <% unless article.archived? %>
